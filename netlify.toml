@@ -1,4 +1,4 @@
 [build]
-  command = "ng build --prod"
-  functions = "./functions"
+  command = "yarn && ng build --prod"
+  functions = "functions"
   publish = "dist/github-trending-api"

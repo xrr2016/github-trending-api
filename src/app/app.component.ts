@@ -15,15 +15,13 @@ hljs.initHighlightingOnLoad()
 export class AppComponent {
   title = 'github-trending-api'
 
-  code = 'aaaa'
+  data: []
 
   constructor(private jsonService: JsonService) {}
 
   getJson() {
-    this.jsonService.getJson().then(data => {
-      console.log('data :', data)
-      // this.code = JSON.stringify(data, () => {}, 2)
-      this.code = JSON.stringify(data)
+    this.jsonService.getJson().subscribe(res => {
+      this.data = res.map(d => JSON.stringify(d, null, 2))
     })
   }
 }

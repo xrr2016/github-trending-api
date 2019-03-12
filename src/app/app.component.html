@@ -13,6 +13,9 @@
         Try
       </button>
     </section>
-    <pre><code class="code json">{{ code }}</code></pre>
+    <pre>[
+      <code class="code json" *ngFor="let item of data">{{ item }}</code>
+      ]
+    </pre>
   </nz-content>
 </nz-layout>
