@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core'
   providedIn: 'root'
 })
 export class JsonService {
-  postsUrl = 'https://jsonplaceholder.typicode.com/posts?_limit=10'
+  postsUrl = 'https://githubtrendingapi.xyz/.netlify/functions/api'
 
   constructor(private http: HttpClient) {}
 
