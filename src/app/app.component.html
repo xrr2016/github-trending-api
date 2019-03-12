@@ -1,5 +1,5 @@
 <nz-layout class="layout">
-  <nz-header class="header">Header</nz-header>
+  <nz-header class="header">{{ title }}</nz-header>
   <nz-content class="content">
     <section class="section">
       <button
@@ -9,13 +9,9 @@
         nzType="primary"
         (click)="getJson()"
       >
-        Primary
+        Try
       </button>
     </section>
-    <pre>
-        <code class="code json">
-          {{ json }}
-        </code>
-    </pre>
+    <pre><code class="code json">{{ code }}</code></pre>
   </nz-content>
 </nz-layout>

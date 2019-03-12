@@ -5,6 +5,8 @@ import { JsonService } from './services/json.service'
 
 hljs.registerLanguage('javascript', json)
 
+hljs.initHighlightingOnLoad()
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,13 +15,15 @@ hljs.registerLanguage('javascript', json)
 export class AppComponent {
   title = 'github-trending-api'
 
-  json: string
+  code = 'aaaa'
 
   constructor(private jsonService: JsonService) {}
 
   getJson() {
-    this.jsonService
-      .getJson()
-      .then(data => (this.json = JSON.stringify(data, null, 4)))
+    this.jsonService.getJson().then(data => {
+      console.log('data :', data)
+      // this.code = JSON.stringify(data, () => {}, 2)
+      this.code = JSON.stringify(data)
+    })
   }
 }
