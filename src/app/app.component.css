@@ -1,0 +1,33 @@
+.header {
+  padding: 2rem 0;
+  margin-bottom: 1.5rem;
+  background-color: aliceblue;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.link {
+  color: #999;
+  padding: 0 0.5rem;
+}
+
+.link.active {
+  color: #666;
+  text-decoration: underline;
+}
+
+.main {
+  width: 96%;
+  max-width: 1000px;
+  margin: 0 auto;
+}

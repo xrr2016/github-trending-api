@@ -1,0 +1,65 @@
+<form class="form" nz-form [nzLayout]="'inline'" (submit)="submitForm()">
+  <nz-form-item class="form-item">
+    <nz-select
+      class="select"
+      name="selectedType"
+      nzAllowClear
+      [(ngModel)]="selectedType"
+      nzPlaceHolder="选择类型"
+    >
+      <nz-option nzValue="" nzLabel="repositories"></nz-option>
+      <nz-option nzValue="developers" nzLabel="developers"></nz-option>
+    </nz-select>
+  </nz-form-item>
+  <nz-form-item class="form-item">
+    <nz-select
+      class="select"
+      nzAllowClear
+      name="selectedLanguage"
+      [(ngModel)]="selectedLanguage"
+      nzPlaceHolder="选择语言"
+    >
+      <nz-option nzValue="" nzLabel="all"></nz-option>
+      <nz-option nzValue="unknown" nzLabel="unknown"></nz-option>
+      <nz-option nzValue="css" nzLabel="css"></nz-option>
+      <nz-option nzValue="go" nzLabel="go"></nz-option>
+      <nz-option nzValue="html" nzLabel="html"></nz-option>
+      <nz-option nzValue="javascript" nzLabel="javascript"></nz-option>
+      <nz-option nzValue="python" nzLabel="python"></nz-option>
+      <nz-option nzValue="typescript" nzLabel="typescript"></nz-option>
+      <nz-option nzValue="vue" nzLabel="vue"></nz-option>
+    </nz-select>
+  </nz-form-item>
+  <nz-form-item class="form-item">
+    <nz-select
+      class="select"
+      nzAllowClear
+      name="selectedSince"
+      [(ngModel)]="selectedSince"
+      nzPlaceHolder="选择日期"
+    >
+      <nz-option nzValue="daily" nzLabel="daily"></nz-option>
+      <nz-option nzValue="weekly" nzLabel="weekly"></nz-option>
+      <nz-option nzValue="monthly" nzLabel="monthly"></nz-option>
+    </nz-select>
+  </nz-form-item>
+  <nz-form-item class="form-item">
+    <button
+      class="submit-button"
+      nz-button
+      nzType="primary"
+      [nzLoading]="isFetchingData"
+      [disabled]="isFetchingData"
+    >
+      Try
+    </button>
+  </nz-form-item>
+</form>
+
+<p class="url" id="generatedUrl" title="点击复制">{{ generatedUrl() }}</p>
+
+<pre>
+  <code id="trendingDataString">没有数据</code>
+</pre>
+
+<nz-back-top></nz-back-top>

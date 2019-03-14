@@ -1,0 +1,24 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-item {
+  flex: 1;
+}
+
+.form-item:last-of-type {
+  margin: 0;
+}
+
+.submit-button {
+  width: 100%;
+}
+
+.url {
+  padding: 2rem 0 1rem 0;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin: 0;
+}

@@ -1,22 +1,37 @@
 import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 
-const API_ENDPOINT = 'https://github.com/trending'
+const URL = 'https://github.com/trending'
 
-function toNumber(string) {
-  if (!string) {
-    return
+const toLower = string => (string ? string.toLowerCase() : '')
+const toNumber = string => (string ? parseInt(string.match(/\d/g).join('')) : 0)
+
+// https://github.com/trending/developers?since=weekly
+
+function generateUrl(type = '', language = '', since = '') {
+  let url = `${URL}`
+
+  if (type) {
+    url += `/${toLower(type)}`
   }
-  return parseInt(string.match(/\d/g).join(''))
-}
 
-function generateUrl(type = 'repositories', language = '', since = 'daily') {
-  return `${API_ENDPOINT}/${type}${language}?since=${since}`
+  if (language) {
+    url += `/${toLower(language)}`
+  }
+
+  if (since) {
+    url += `?since=${toLower(since)}`
+  }
+
+  return url
 }
 
 exports.handler = async (event, context) => {
   const { type, since, language } = event.queryStringParameters
+
   const url = generateUrl(type, language, since)
+
+  console.log('url :', url)
 
   return fetch(url)
     .then(response => response.text())
@@ -123,9 +138,10 @@ exports.handler = async (event, context) => {
       headers: {
         'Contype-type': 'application/json',
         'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET',
         'Access-Control-Allow-Headers': 'Origin, Content-Type, Accept'
       },
-      body: JSON.stringify({ results })
+      body: JSON.stringify(results)
     }))
     .catch(error => ({ statusCode: 422, body: String(error) }))
 }
