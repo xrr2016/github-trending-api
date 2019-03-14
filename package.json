@@ -1,5 +1,5 @@
 {
-  "name": "github-trending",
+  "name": "github-trending-api",
   "version": "0.1.0",
   "scripts": {
     "ng": "ng",
