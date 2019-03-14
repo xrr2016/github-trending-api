@@ -12,6 +12,11 @@ enum SearchType {
   DEVELOPER = 'developers'
 }
 
+const TRENDING_PAGE_URL = 'https://github.com/trending'
+const API_ENPOINT = 'https://githubtrendingapi.xyz/.netlify/functions/trending'
+
+const testQuestionMark = (str: string) => /\?/.test(str)
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -34,7 +39,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     const clipboard = new ClipboardJS('#generatedUrl', {
       text(trigger: HTMLButtonElement) {
-        return trigger.innerText.trim()
+        return trigger.previousElementSibling.innerHTML.trim()
       }
     })
     clipboard.on('success', e => {
@@ -46,7 +51,37 @@ export class HomeComponent implements OnInit {
   }
 
   generatedUrl(): string {
-    let url = 'https://github.com/trending'
+    let url = API_ENPOINT
+
+    if (this.selectedType) {
+      if (testQuestionMark(url)) {
+        url += `&type=${this.selectedType}`
+      } else {
+        url += `?type=${this.selectedType}`
+      }
+    }
+
+    if (this.selectedLanguage) {
+      if (testQuestionMark(url)) {
+        url += `&language=${this.selectedLanguage}`
+      } else {
+        url += `?language=${this.selectedLanguage}`
+      }
+    }
+
+    if (this.selectedSince) {
+      if (testQuestionMark(url)) {
+        url += `&since=${this.selectedSince}`
+      } else {
+        url += `?since=${this.selectedSince}`
+      }
+    }
+
+    return url
+  }
+
+  generateTrendingPageUrl(): string {
+    let url = TRENDING_PAGE_URL
 
     if (this.selectedType) {
       url += `/${this.selectedType}`
@@ -66,27 +101,35 @@ export class HomeComponent implements OnInit {
   getData() {
     return new Promise((resolve, reject) => {
       if (this.selectedType === SearchType.DEVELOPER) {
-        this.trendingService.getTrendingDevelopers().subscribe(
-          developers => {
-            this.trendingDataString = JSON.stringify({ developers }, null, 2)
-            resolve()
-          },
-          error => {
-            this.message.error('出错了，请重试。')
-            reject()
-          }
-        )
+        this.trendingService
+          .getTrendingDevelopers(this.selectedSince, this.selectedLanguage)
+          .subscribe(
+            developers => {
+              this.trendingDataString = JSON.stringify({ developers }, null, 2)
+              resolve()
+            },
+            error => {
+              this.message.error('出错了，请重试。')
+              reject()
+            }
+          )
       } else {
-        this.trendingService.getTrendingRepositories().subscribe(
-          repositories => {
-            this.trendingDataString = JSON.stringify({ repositories }, null, 2)
-            resolve()
-          },
-          error => {
-            this.message.error('出错了，请重试。')
-            reject()
-          }
-        )
+        this.trendingService
+          .getTrendingRepositories(this.selectedSince, this.selectedLanguage)
+          .subscribe(
+            repositories => {
+              this.trendingDataString = JSON.stringify(
+                { repositories },
+                null,
+                2
+              )
+              resolve()
+            },
+            error => {
+              this.message.error('出错了，请重试。')
+              reject()
+            }
+          )
       }
     })
   }

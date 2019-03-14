@@ -1,37 +1,59 @@
 <p>
-  about works!
+  本站提供 Github 趋势数据接口，即
+  <a href="https://github.com/trending" target="_blank"
+    >https://github.com/trending</a
+  >
+  页面上的数据，有两种类型，仓库和开发者，选择不同的参数类型获取数据。
 </p>
 
-<section class="models">
-  <nz-collapse class="model">
-    <nz-collapse-panel [nzHeader]="'Repository'">
-      <pre>
-        <code>
-          class Developer
-              rank: number
-          avatar: string
-          accountName: string
-          userName: string
-          repository: string
-          description: string
-        </code>
-    </pre>
-    </nz-collapse-panel>
-  </nz-collapse>
-  <nz-collapse class="model">
-    <nz-collapse-panel [nzHeader]="'Repository'">
-      <pre>
-        <code>
-          class Developer
-              rank: number
-          avatar: string
-          accountName: string
-          userName: string
-          repository: string
-          description: string
+<nz-card class="code-card" nzTitle="Repository">
+  <pre><code>{{ repositoryText }}</code></pre>
+</nz-card>
+<nz-card class="code-card" nzTitle="Developer">
+  <pre><code>{{ developerText }}</code></pre>
+</nz-card>
 
-        </code>
-      </pre>
-    </nz-collapse-panel>
-  </nz-collapse>
-</section>
+<p>
+  <span class="line-left">前端框架：</span
+  ><a href="https://angular.io/">Angular</a>
+</p>
+<p>
+  <span class="line-left">UI 框架：</span>
+  <a href="https://ng.ant.design/docs/introduce/zh">NG-ZORRO</a>
+</p>
+
+<p>
+  <span class="line-left">意见反馈:</span>
+  <a
+    href="https://github.com/xrr2016/github-trending-api/issues/new"
+    target="_blank"
+    >Feekback</a
+  >
+</p>
+
+<p>
+  <span class="line-left">开发者:</span>
+  <a href="https://github.com/xrr2016" target="_blank">轻剑快马</a>
+</p>
+
+<p>
+  <span class="line-left">源码协议:</span>
+  <a href="http://opensource.org/licenses/mit-license.php" target="_blank"
+    >MIT</a
+  >
+</p>
+
+<p>
+  <span class="line-left">Host:</span>
+  <a href="https://app.netlify.com/" target="_blank">Netlify</a>
+</p>
+
+<p>
+  <span class="line-left">联系邮箱:</span>
+  <a href="mailto:xiaoranran1993@outlook.com">xiaoranran1993@outlook.com</a>
+</p>
+
+<p>如果有帮助到您，请酌情赞助开发者</p>
+<nz-card class="shoukuanma-card">
+  <img class="card-image" src="../../../assets/shoukuanma.png" alt="赞助" />
+</nz-card>

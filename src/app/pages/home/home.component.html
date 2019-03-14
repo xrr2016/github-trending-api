@@ -56,7 +56,24 @@
   </nz-form-item>
 </form>
 
-<p class="url" id="generatedUrl" title="点击复制">{{ generatedUrl() }}</p>
+<div class="urls">
+  <p class="url">
+    <span class="prefix">Gihub</span>
+    <span class="text">{{ generateTrendingPageUrl() }}</span>
+    <a
+      nz-button
+      nzType="default"
+      [href]="generateTrendingPageUrl()"
+      target="_blank"
+      >查看</a
+    >
+  </p>
+  <p class="url" title="点击复制">
+    <span class="prefix">Api</span>
+    <span class="text">{{ generatedUrl() }}</span>
+    <button nz-button nzType="default" id="generatedUrl">复制</button>
+  </p>
+</div>
 
 <pre>
   <code id="trendingDataString">没有数据</code>

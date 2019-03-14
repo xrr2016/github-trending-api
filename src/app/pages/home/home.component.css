@@ -16,9 +16,26 @@
   width: 100%;
 }
 
+.urls {
+  margin-top: 1.5rem;
+}
+
 .url {
-  padding: 2rem 0 1rem 0;
-  font-size: 1.2rem;
-  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1rem;
   margin: 0;
+}
+.url:first-of-type {
+  margin-bottom: 0.5rem;
+}
+
+.url .prefix {
+  width: 50px;
+}
+
+.url .text {
+  flex: 1;
+  color: #333;
 }

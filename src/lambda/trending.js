@@ -9,7 +9,7 @@ const toNumber = string => (string ? parseInt(string.match(/\d/g).join('')) : 0)
 // https://github.com/trending/developers?since=weekly
 
 function generateUrl(type = '', language = '', since = '') {
-  let url = `${URL}`
+  let url = URL
 
   if (type) {
     url += `/${toLower(type)}`
@@ -31,6 +31,9 @@ exports.handler = async (event, context) => {
 
   const url = generateUrl(type, language, since)
 
+  console.log('type :', type)
+  console.log('language :', language)
+  console.log('since :', since)
   console.log('url :', url)
 
   return fetch(url)

@@ -1,0 +1,22 @@
+.code-card {
+  width: 50%;
+  margin-bottom: 1rem;
+}
+
+pre {
+  margin: 0;
+}
+
+.line-left {
+  display: inline-block;
+  width: 80px;
+}
+
+.card-image {
+  width: 100%;
+}
+
+.shoukuanma-card {
+  width: 320px;
+  margin-bottom: 2rem;
+}
