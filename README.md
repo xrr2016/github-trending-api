@@ -1,27 +1,35 @@
-# GithubTrending
+# Github Trending Api
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.5.
+> Github trending data api
 
-## Development server
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0fdf2cbd-eeb4-4012-86a3-5b3ef9416341/deploy-status)](https://app.netlify.com/sites/gallant-poincare-023ef3/deploys)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![home](home.jpg)
 
-## Code scaffolding
+[Link](https://githubtrendingapi.xyz)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Develop
 
-## Build
+```sh
+npm install           ## project setup
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+npm run serve         ## compiles and hot-reloads for development
 
-## Running unit tests
+npm run lambda:serve  ## setup lambda functions development
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+npm run build         ## compiles and minifies for production
 
-## Running end-to-end tests
+npm run lambda:build  ## build lambda functions
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Contributing
 
-## Further help
+1. Fork it (<https://github.com/xrr2016/github-trending-api.git>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## License
+
+[MIT](LICENSE)
