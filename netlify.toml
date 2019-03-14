@@ -1,4 +1,7 @@
 [build]
-  command = "yarn && ng build --prod"
   functions = "functions"
-  publish = "dist/github-trending-api"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
