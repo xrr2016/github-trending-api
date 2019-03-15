@@ -19,15 +19,11 @@
       [(ngModel)]="selectedLanguage"
       nzPlaceHolder="选择语言"
     >
-      <nz-option nzValue="" nzLabel="all"></nz-option>
-      <nz-option nzValue="unknown" nzLabel="unknown"></nz-option>
-      <nz-option nzValue="css" nzLabel="css"></nz-option>
-      <nz-option nzValue="go" nzLabel="go"></nz-option>
-      <nz-option nzValue="html" nzLabel="html"></nz-option>
-      <nz-option nzValue="javascript" nzLabel="javascript"></nz-option>
-      <nz-option nzValue="python" nzLabel="python"></nz-option>
-      <nz-option nzValue="typescript" nzLabel="typescript"></nz-option>
-      <nz-option nzValue="vue" nzLabel="vue"></nz-option>
+      <nz-option
+        [nzValue]="item.value"
+        [nzLabel]="item.label"
+        *ngFor="let item of languages"
+      ></nz-option>
     </nz-select>
   </nz-form-item>
   <nz-form-item class="form-item">

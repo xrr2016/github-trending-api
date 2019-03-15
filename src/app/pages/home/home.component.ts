@@ -31,6 +31,26 @@ export class HomeComponent implements OnInit {
 
   trendingDataString = ''
 
+  languages = [
+    { label: 'all', value: '' },
+    { label: 'unknown', value: 'unknown' },
+    { label: 'css', value: 'css' },
+    { label: 'go', value: 'go' },
+    { label: 'html', value: 'html' },
+    { label: 'javascript', value: 'javascript' },
+    { label: 'python', value: 'python' },
+    { label: 'typescript', value: 'typescript' },
+    { label: 'vue', value: 'vue' },
+    { label: 'java', value: 'java' },
+    { label: 'dart', value: 'dart' },
+    { label: 'json', value: 'json' },
+    { label: 'shell', value: 'shell' },
+    { label: 'php', value: 'php' },
+    { label: 'ruby', value: 'ruby' },
+    { label: 'c', value: 'c' },
+    { label: 'c#', value: 'c%23' }
+  ]
+
   constructor(
     private message: NzMessageService,
     private trendingService: TrendingService
